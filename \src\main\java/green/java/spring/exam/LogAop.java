@@ -13,7 +13,7 @@ public class LogAop {
 			System.out.println("핵심 기능 전  공통 기능 " + System.currentTimeMillis());
 
 		try {
-			Object obj = joinpoint.proceed(); 
+			Object obj = joinpoint.proceed(); // java의 thread와 비슷하다. 핵심기능 수행을 한다는 문장. 
 			return obj;
 		} finally {
 				System.out.println("핵심 기능 후 공통 기능 " + System.currentTimeMillis());

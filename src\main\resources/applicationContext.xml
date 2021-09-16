@@ -14,6 +14,17 @@ http://www.springframework.org/schema/tx/spring-tx.xsd    http://www.springframe
 http://www.springframework.org/schema/util/spring-util.xsd    http://www.springframework.org/schema/task
 http://www.springframework.org/schema/task/spring-task.xsd">
 
+	<bean id="logAop" class="green.java.spring.exam.LogAop" />
+ 
+<!--  AOP 설정  -->
+<aop:config>
+    <aop:aspect id="logger" ref="logAop">
+        <aop:pointcut id="publicM" expression="within(green.java.spring.exam.*)"/>
+        <aop:around pointcut-ref="publicM" method="loggerAop"/>
+    </aop:aspect>
+</aop:config>
+
+
 <bean id="dogs" class="green.java.spring.exam.Dogs">
 	<property name="name" value="tori"/>
 </bean>
